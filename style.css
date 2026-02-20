@@ -1,0 +1,417 @@
+/* ==========================================
+   Dashboard Styles - Professional Theme
+   ========================================== */
+
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #00d4ff;
+    --primary-glow: rgba(0, 212, 255, 0.5);
+    --primary-glow-light: rgba(0, 212, 255, 0.2);
+    --primary-glow-ultra-light: rgba(0, 212, 255, 0.05);
+    --primary-glow-medium: rgba(0, 212, 255, 0.3);
+    --bg-dark: #0a0a0f;
+    --bg-secondary: #1a1a2e;
+    --widget-bg: rgba(20, 20, 35, 0.8);
+    --text-white: #ffffff;
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-mono: 'Courier New', monospace;
+    --transition-speed: 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-secondary) 100%);
+    min-height: 100vh;
+    color: var(--text-white);
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Dashboard Container */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 20px var(--primary-glow);
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        text-shadow: 0 0 20px var(--primary-glow);
+    }
+    50% {
+        text-shadow: 0 0 30px var(--primary-glow), 0 0 40px var(--primary-glow-light);
+    }
+}
+
+/* Widget Grid */
+.widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Widget Card */
+.widget {
+    background: var(--widget-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        0 8px 32px var(--primary-glow-light),
+        inset 0 0 20px var(--primary-glow-ultra-light);
+    transition: all var(--transition-speed) ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 12px 40px var(--primary-glow-medium),
+        inset 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.widget-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--primary-glow-medium);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Time Widget */
+.time-display {
+    text-align: center;
+}
+
+.time {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--text-white);
+    text-shadow: 0 0 20px var(--primary-glow);
+    line-height: 1;
+    font-family: var(--font-mono);
+    letter-spacing: 2px;
+}
+
+.date {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 10px;
+    text-shadow: 0 0 10px var(--primary-glow-medium);
+    font-weight: 500;
+}
+
+/* Weather Widget */
+.weather-display {
+    text-align: center;
+}
+
+.weather-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px var(--primary-glow);
+    animation: float 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.temperature {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--text-white);
+    text-shadow: 0 0 20px var(--primary-glow);
+    line-height: 1;
+}
+
+.weather-info {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 15px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.weather-details {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    color: var(--text-white);
+    gap: 10px;
+}
+
+.weather-detail {
+    text-align: center;
+    flex: 1;
+}
+
+.weather-detail-label {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Focus Timer Widget */
+.timer-display {
+    text-align: center;
+}
+
+.timer {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--text-white);
+    text-shadow: 0 0 30px var(--primary-glow);
+    margin: 20px 0;
+    font-family: var(--font-mono);
+    letter-spacing: 3px;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px var(--primary-glow-medium);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.95) translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    background: transparent;
+    color: var(--primary-color);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Timer Inputs */
+.timer-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.timer-input {
+    width: 80px;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    background: rgba(0, 212, 255, 0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    color: var(--text-white);
+    outline: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.timer-input:focus {
+    box-shadow: 0 0 20px var(--primary-glow-light);
+    background: rgba(0, 212, 255, 0.2);
+}
+
+.timer-input::placeholder {
+    color: rgba(0, 212, 255, 0.5);
+}
+
+.timer-label {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px var(--primary-glow-medium);
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .time {
+        font-size: 3rem;
+    }
+
+    .date {
+        font-size: 1.2rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+    }
+
+    .timer {
+        font-size: 3.5rem;
+    }
+
+    .weather-icon {
+        font-size: 4rem;
+    }
+
+    .widget {
+        padding: 20px;
+    }
+
+    .timer-controls {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .time {
+        font-size: 2.5rem;
+    }
+
+    .temperature {
+        font-size: 2.5rem;
+    }
+
+    .timer {
+        font-size: 2.5rem;
+    }
+
+    .weather-icon {
+        font-size: 3rem;
+    }
+
+    .weather-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    .widget {
+        border: 1px solid #000000;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+
+    h1 {
+        color: #000000;
+        text-shadow: none;
+    }
+}
